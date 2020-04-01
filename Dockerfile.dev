@@ -1,0 +1,11 @@
+FROM node:alpine
+#ADD WORKDIR
+WORKDIR '/app'
+#COPY files to container which are needed for dependencies
+COPY package.json .
+#Dependencies
+RUN npm install
+#COPY files that can be changed afterwards
+COPY . .
+#Default command
+CMD ["npm", "run", "start"]
